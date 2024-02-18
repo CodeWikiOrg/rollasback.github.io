@@ -2,46 +2,75 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# RollAsBack Introduction 
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Let's discover **RollAsBack in less than 5 minutes**.
 
-## Getting Started
+ 
+# Python Web Backend Framework
 
-Get started by **creating a new site**.
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Latest Release](https://img.shields.io/github/v/release/CodeWikiOrg/RollAsBack)](https://github.com/CodeWikiOrg/RollAsBack/releases)
+[![PyPI Version](https://img.shields.io/pypi/v/rollasback)](https://pypi.org/project/rollasback/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/rollasback)](https://pypi.org/project/rollasback/)
+[![Stars](https://img.shields.io/github/stars/CodeWikiOrg/RollAsBack?style=social)](https://github.com/CodeWikiOrg/RollAsBack)
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Description
 
-### What you'll need
+RollAsBack is an innovative web backend framework meticulously crafted in Python. Engineered to offer a seamless and
+adaptable solution for constructing web applications, this framework empowers developers to define routes and
+proficiently manage HTTP requests.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+At the heart of RollAsBack lies a commitment to simplicity and flexibility. The framework's design philosophy centers
+around facilitating the development process, allowing developers to focus on building robust web applications without
+the unnecessary complexities often associated with backend development.
 
-## Generate a new site
+## Installation
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
+You can install RollAsBack using pip:
 
 ```bash
-cd my-website
-npm run start
+pip install rollasback
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+or you can clone the repository and install it manually:
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+```bash
+git clone https://github.com/CodeWikiOrg/RollAsBack.git
+cd RollAsBack
+python setup.py install
+```
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## Usage
+
+RollAsBack provides a simple way to define and handle routes in your web application. It includes basic functionality
+for handling HTTP requests and responses.
+
+## Features
+
+- **Route Handling:** Define routes using the `@endpoint` decorator.
+- **Request Parsing:** Parse HTTP requests and extract relevant information.
+- **Response Generation:** Generate HTTP responses with ease.
+- **Logging:** Log important events and messages.
+
+## Example
+
+```python
+from rollasback.app import RollAsBack, HttpResponse, RESPONSEMEMETYPES
+
+app = RollAsBack("MyApp")
+
+
+@app.endpoint("/hello")
+def hello(request):
+    return HttpResponse("Hello, World!", status=200, mimetype=RESPONSEMEMETYPES.text_plain)
+
+
+if __name__ == "__main__":
+    app.start_server("127.0.0.1", 8000)
+```
+
+In this example, a simple "Hello, World!" route is defined. When the server is started, it listens on `127.0.0.1:8000`
+for incoming requests.
+
+ 
